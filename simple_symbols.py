@@ -12,9 +12,18 @@ different arguments
 '''
 
 def SimpleSymbols(str): 
-	for i in str:
-		print i
-	return str    
+	for i, c in enumerate(str):
+		if c.isalpha():
+			'''
+			print str[i - 1]
+			print c
+			print str[i + 1]
+			'''
+			if str[i - 1] == "+":
+				if str[i + 1] == "+":
+					return True
+				else:
+					return False 
     
 # keep this function call here  
 # to see how to enter arguments in Python scroll down
