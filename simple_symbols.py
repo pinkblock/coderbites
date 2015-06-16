@@ -12,17 +12,23 @@ different arguments
 '''
 
 def check_legit(str):
-    """ check that data pass has atleast on letter and thous is not empty 
+    """ check that data pass has at least on letter and thous is not empty 
 
-        >>> check_legit("---")
-        error
-        >>> check_legit("-a-")
-        -a-
-        >>> check_legit("")
-        error
-        >>> check_legit("-2-")
-        -2-
+    >>> check_legit("---")
+    'error'
+    >>> check_legit("-a-")
+    -a-
+    >>> check_legit("")
+    'error'
+    >>> check_legit("-2-")
+    'error'
     """
+    for i in str:
+        if i.isalpha():
+            return str
+    else:
+        return 'error'
+
 
 def letter_cutter(str):
     """Iterate threw str find all letters if the letter is the first or last 
@@ -30,15 +36,15 @@ def letter_cutter(str):
     the letter and the character after it.
 
     >>> letter_cutter("+a+")
-    True
+    ['+', 'a', '+']
     >>> letter_cutter("3a3")
-    False
+    ['3', 'a', '3']
     >>> letter_cutter("+a+==")
-    True
+    ['+', 'a', '+']
     >>> letter_cutter("a+===")
     False
     >>> letter_cutter("==+a+")
-    True
+    ['+', 'a', '+']
     >>> letter_cutter("===+a")
     False
     """
@@ -50,7 +56,7 @@ def letter_cutter(str):
             if i - 1 >= 0 and i + 1 <= (len(str) - 1):
                 letter_stamps += str[i - 1], str[i], str[i + 1]
             else:
-                return "error"
+                return False
 
     return letter_stamps
 
