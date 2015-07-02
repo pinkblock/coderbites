@@ -6,30 +6,33 @@ of + and = symbols with several letters between them (ie. ++d+===+c++==a) and
 for the string to be true each letter must be surrounded by a + symbol.
 So the string to the left would be false. The string will not be empty and
 will have at least one letter.
-
-Use the Parameter Testing feature in the box below to test your code with
-different arguments
 '''
 
 def SimpleSymbols(str): #this name has been formated this way for coderbytes
-    """check that str is made up of [alpha, "+", "="] and at least one alpha
+    """check that str is made up of [alpha, "+", "="] and has at least one alpha
     return true if each alpha is surrounded by a "+" symbol
     else return false
 
+    >>> SimpleSymbols("++d+===+c++==a")
+    False
+    >>> SimpleSymbols("+d+=3=+s+")
+    True
+    >>> SimpleSymbols("f++d+")
+    False
     >>> SimpleSymbols("+d+")
     True
-    >>> SimpleSymbols("+d===+a+")
+    >>> SimpleSymbols("+d+===+a+")
     True
-    >>> SimpleSymbols(+z+z+z+")
-    False
+    >>> SimpleSymbols("+z+z+z+")
+    True
     >>> SimpleSymbols("+a=")
     False
     >>> SimpleSymbols("2+a+a+")
-    False
+    True
     >>> SimpleSymbols("+a++")
-    False
+    True
     >>> SimpleSymbols("+z+z+==+a+")
-    False
+    True
     >>> SimpleSymbols("==a+")
     False
     >>> SimpleSymbols("b+")
@@ -42,9 +45,9 @@ def SimpleSymbols(str): #this name has been formated this way for coderbytes
     if str[-1].isalpha():
         return False
 
-    for i in str:
+    for i, c in enumerate(str):
         if str[i].isalpha():
-            if str[i -1] == "+" and str[i + 1] == "+":
+            if str[i - 1] == "+" and str[i + 1] == "+":
                 return True
             else:
                 return False
@@ -52,4 +55,4 @@ def SimpleSymbols(str): #this name has been formated this way for coderbytes
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    print SimpleSymbols('+e+==')
+    print SimpleSymbols('f++d+')

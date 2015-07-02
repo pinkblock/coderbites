@@ -48,7 +48,7 @@ def letter_cutter(str):
     >>> letter_cutter("a+===")
     False
     >>> letter_cutter("==+a+")
-    ['+', 'a', '+']
+        ['+', 'a', '+']
     >>> letter_cutter("===+a")
     False
     """
